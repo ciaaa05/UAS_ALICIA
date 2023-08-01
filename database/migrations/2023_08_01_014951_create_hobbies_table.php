@@ -13,18 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('hobbies', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('gender');
-            $table->string('instagram');
-            $table->date('dob');
-            $table->string('email')->unique();
-            $table->string('phone', 15)->unique();
-            $table->string('image');
-            $table->integer('balance')->default(100);
-            $table->string('password');
-            // $table->integer('balance')->default(0);
             $table->timestamps();
         });
     }
@@ -36,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('hobbies');
     }
 };

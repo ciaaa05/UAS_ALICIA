@@ -1,50 +1,50 @@
-<nav class="navbar" style="background-color: #e3f2fd;">
+<!-- Navbar -->
+<link rel="stylesheet" href="/css/register.css">
+<nav class="navbar navbar-expand-lg navbar-dark gradient-custom">
+    <!-- Container wrapper -->
     <div class="container-fluid">
-        <a class="navbar-brand">SKY</a>
+      <!-- Navbar brand -->
+      <a class="navbar-brand" href="/home">ConnectFriend</a>
 
-        <a class="nav-link active mx-3" aria-current="page" href="/home">Home</a>
-        <a class="nav-link" href="/transaction">Transaction</a>
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0">
+        </ul>
+        <!-- Left links -->
 
-        <div>
-            Saldo: @yield('balance')
+        <!-- Right links -->
+        <form class="d-flex input-group w-50 ms-lg-3 my-3 my-lg-0">
+          <input type="search" class="form-control" placeholder="Search" aria-label="Search" />
+          <button class="btn btn-outline-light" type="button" data-mdb-ripple-color="dark">
+            Search
+          </button>
+        </form>
+        <ul class="navbar-nav ms-auto d-flex flex-row mt-3 mt-lg-0">
+            <li class="nav-item text-center mx-2 mx-lg-1">
+                <a class="nav-link" href="/requested">
+                  Requested
+                </a>
+              </li>
+            <li class="nav-item text-center mx-2 mx-lg-1">
+                <a class="nav-link" href="/wishlist">
+                  Wishlist
+                </a>
+              </li>
+            <li class="nav-item text-center mx-2 mx-lg-1">
+              <a class="nav-link" href="#">
+                Messages
+              </a>
+            </li>
 
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                TopUp
-            </button>
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <form action="/top-up" method="POST">
-                    @method('put')
-                    @csrf
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Top Up Balance</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                Your Current Balance: {{ $auth->balance }}
-                            </div>
-                            <div class="d-flex mx-3">
-                                Input top up:
-                                <input type="number" name="balance" id="balance">
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Confirm TopUp</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
+          </ul>
+        <!-- Right links -->
 
         <form action="/logout" method="POST">
             @csrf
-            <button class="btn btn-outline-success" type="submit">Logout</button>
+            <button class="btn btn-outline-light" type="submit" data-mdb-ripple-color="dark">Logout</button>
         </form>
+
+      </div>
     </div>
-</nav>
+  </nav>
