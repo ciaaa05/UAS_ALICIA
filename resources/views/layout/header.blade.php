@@ -22,6 +22,11 @@
         </form>
         <ul class="navbar-nav ms-auto d-flex flex-row mt-3 mt-lg-0">
             <li class="nav-item text-center mx-2 mx-lg-1">
+                <a class="nav-link" href="/friend">
+                  Friends
+                </a>
+              </li>
+            <li class="nav-item text-center mx-2 mx-lg-1">
                 <a class="nav-link" href="/requested">
                   Requested
                 </a>

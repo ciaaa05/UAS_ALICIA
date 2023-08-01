@@ -29,8 +29,6 @@ class UserController extends Controller
             'user1' => auth()->user()->id,
             'user2' => $request->user_2,
         ]);
-
-
         return redirect('/wishlist');
     }
 
@@ -42,4 +40,19 @@ class UserController extends Controller
         $friends = Friend::where('user2', auth()->user()->id)->get();
         return view('requested', compact('friends'));
     }
+    public function friend(Request $request){
+        $friend = Friend::where('user2', auth()->user()->id)->where('user1', $request->user_1)->first();
+        $friend->status1 = 'friend';
+        $friend->status2 = 'friend';
+
+        $friend->save();
+
+        return redirect('/friend');
+    }
+
+    public function show_friend(){
+        $friends = Friend::where('status1', 'friend')->get();
+        return view('friend', compact('friends'));
+    }
+
 }

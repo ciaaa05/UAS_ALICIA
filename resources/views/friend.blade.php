@@ -27,9 +27,9 @@
                         <img src="{{ $friend->user->image }}" class="card-img-top" alt="...">
                         <h5 class="card-title">{{ $friend->user->name }}</h5>
                         <p class="card-text">HOBBY:</p>
-                        <form action="/friend" method="POST">
+                        <form action="/thumb" method="POST">
                             @csrf
-                            <input type="text" name="user_1" id="user_1" value="{{ $friend->id }}" hidden>
+                            <input type="text" name="user_2" id="user_2" value="{{ $friend->id }}" hidden>
                             <button type="submit" class="btn btn-outline-success">Thumb</button>
                         </form>
                     </div>

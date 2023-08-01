@@ -17,7 +17,7 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('register');
 });
 
 Route::get('/register', [RegisterController::class, 'index']);
@@ -27,10 +27,12 @@ Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
-Route::get('/home', [UserController::class, 'index']);
-Route::post('/home', [UserController::class, 'index']);
-Route::post('/home/{gender}', [UserController::class, 'filter']);
+Route::get('/home', [UserController::class, 'index'])->middleware('auth');
+Route::post('/home', [UserController::class, 'index'])->middleware('auth');
+Route::post('/home/{gender}', [UserController::class, 'filter'])->middleware('auth');
 
-Route::post('/thumb', [UserController::class, 'wish']);
-Route::get('/wishlist', [UserController::class, 'show_wish']);
-Route::get('/requested', [UserController::class, 'requested']);
+Route::post('/thumb', [UserController::class, 'wish'])->middleware('auth');
+Route::get('/wishlist', [UserController::class, 'show_wish'])->middleware('auth');
+Route::get('/requested', [UserController::class, 'requested'])->middleware('auth');
+Route::post('/friend', [UserController::class, 'friend'])->middleware('auth');
+Route::get('/friend', [UserController::class, 'show_friend'])->middleware('auth');
