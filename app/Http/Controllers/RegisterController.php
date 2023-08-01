@@ -30,7 +30,16 @@ class RegisterController extends Controller
 
         User::create($credentials);
 
-        return redirect('/login')->with('success', 'Successfully Registered');
+        return redirect('/payment');
+        // return redirect('/login')->with('success', 'Successfully Registered');
 
+    }
+
+    public function show_payment(){
+        return view('payment');
+    }
+
+    public function payment(){
+        return redirect('/login');
     }
 }

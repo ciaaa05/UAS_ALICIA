@@ -22,6 +22,8 @@ Route::get('/', function () {
 
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'create']);
+Route::get('/payment', [RegisterController::class, 'show_payment']);
+Route::post('/payment', [RegisterController::class, 'payment']);
 
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'login']);
